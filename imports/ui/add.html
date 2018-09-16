@@ -1,0 +1,41 @@
+<body>
+  <div class="container">
+    <header>
+      {{> loginButtons}}
+      <!-- <h3>MEST Records</h3> -->
+      {{#if currentUser}}
+      <form class="eitdata">
+        <label>
+            First Name
+            &nbsp;&nbsp;
+          <input type="text" name="firstName" />
+        </label><br><br>
+        <label>
+            Last Name
+            &nbsp;&nbsp;
+          <input type="text" name="lastName" />
+        </label><br><br>
+        <label>
+            Gender
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" name="gender"/>
+        </label><br><br>
+        <label>
+            Date of Birth
+            &nbsp;
+        <input type="text" name="dob"/>
+        </label>
+      </form>
+      {{/if}}
+
+    </header>
+
+    <ul>
+      {{#each records}} {{> record}} {{/each}}
+    </ul>
+  </div>
+</body>
+
+<template name="record">
+  <li>{{username}} {{createdAt}} {{firstName}} {{lastName}}</li>
+</template>
