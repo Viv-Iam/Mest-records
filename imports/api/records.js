@@ -5,7 +5,7 @@ import { check } from 'meteor/check';
 export const Records = new Mongo.Collection('records');
 
 Meteor.methods ({
-    'records.insert' (lastName) {
+    'records.insert' (firstName, lastName, gender, dob) {
         // check(firstName, String);
 
         //Ensure user is logged in
@@ -14,10 +14,10 @@ Meteor.methods ({
         }
 
         Records.insert ({
-            // firstName,
+            firstName,
             lastName,
-            // gender: string,
-            // dob: string,
+            gender,
+            dob,
             createdAt: new Date(),
             owner: Meteor.userId(),
             username: Meteor.user().username,
