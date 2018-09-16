@@ -2,35 +2,35 @@
     <div class="container">
       <header>
         <h1>MEST Records</h1>
-        <form class="eit-data">
+        <form class="eitdata">
           <label>
             First Name
-          <input type="text" name="text" placeholder="First Name" />
+          <input type="text" name="firstName" placeholder="First Name" />
         </label><br>
         <label>
             Last Name
-          <input type="text" name="text" placeholder="Last Name" />
+          <input type="text" name="lastName" placeholder="Last Name" />
         </label><br>
         <label>
             Gender
-          <input type="text" name="text" placeholder="Gender" />
+          <input type="text" name="gender" placeholder="Gender" />
         </label><br>
         <label>
             Date of Birth
-          <input type="text" name="text" placeholder="Date of Birth" />
+          <input type="text" name="dob" placeholder="Date of Birth" />
         </label>
         </form>
 
       </header>
    
       <ul>
-        {{#each tasks}}
-          {{> task}}
+        {{#each records}}
+          {{> record}}
         {{/each}}
       </ul>
     </div>
   </body>
    
-  <template name="task">
-    <li>{{text}}</li>
+  <template name="record">
+    <li>{{eit-bio}}</li>
   </template>
