@@ -2,6 +2,7 @@ import { Template } from 'meteor/templating';
 import { Records } from '../api/records.js';
 
 import './add.html';
+import './list.js';
 
 Template.body.helpers({
     records() {
