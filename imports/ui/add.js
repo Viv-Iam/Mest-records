@@ -11,24 +11,24 @@ Template.body.helpers({
   });
 
   Template.body.events({
-    'submit .eitdata'(event) {
+    'submit .eitdata' (event) {
       // Prevent default browser form submit
       event.preventDefault();
    
       // Get value from form element
       const target = event.target;
-      // const firstName = target.firstName.value;
+      const firstName = target.firstName.value;
       const lastName = target.lastName.value;
-      // const gender = target.gender.value;
-      // const dob = target.dob.value;
+      const gender = target.gender.value;
+      const dob = target.dob.value;
       // Insert a task into the collection
-      Meteor.call('records.insert', lastName);
+      Meteor.call('records.insert', firstName, lastName, gender, dob);
 
       // Clear form
-      // target.firstName.value = '';
+      target.firstName.value = '';
       target.lastName.value = '';
-      // target.gender.value = '';
-      // target.dob.value = '';
+      target.gender.value = '';
+      target.dob.value = '';
     },
   });
   
