@@ -21,6 +21,17 @@ Meteor.methods ({
             createdAt: new Date(),
             owner: Meteor.userId(),
             username: Meteor.user().username,
-        })
-    }
+        });
+    },
+    'records.remove'(taskId) {
+        check(taskId, String);
+     
+        Records.remove(taskId);
+      },
+      'records.setChecked'(taskId, setChecked) {
+        check(taskId, String);
+        check(setChecked, Boolean);
+     
+        Records.update(taskId, { $set: { checked: setChecked } });
+      },
 })
