@@ -23,15 +23,15 @@ Meteor.methods ({
             username: Meteor.user().username,
         });
     },
-    'records.remove'(taskId) {
-        check(taskId, String);
+    'records.remove'(recordId) {
+        check(recordId, String);
      
-        Records.remove(taskId);
+        Records.remove(recordId);
       },
-      'records.setChecked'(taskId, setChecked) {
-        check(taskId, String);
+      'records.setChecked'(recordId, setChecked) {
+        check(recordId, String);
         check(setChecked, Boolean);
      
-        Records.update(taskId, { $set: { checked: setChecked } });
+        Records.update(recordId, { $set: { checked: setChecked } });
       },
 })
