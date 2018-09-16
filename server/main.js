@@ -1,2 +1,2 @@
 import { Meteor } from 'meteor/meteor';
-import '../records/api/records';
+import '../imports/api/records.js';

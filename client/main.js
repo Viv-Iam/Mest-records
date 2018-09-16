@@ -1,3 +1,3 @@
-import '../records/login/accounts-config.js';
+import '../imports/startup/accounts-config.js';
 
-import '../records/add.js';
+import '../imports/ui/add.js';
