@@ -1,5 +1,5 @@
 <body>
-  <div class="container">
+  <!-- <div class="container"> -->
     <header>
       {{> loginButtons}}
       <!-- <h3>MEST Records</h3> -->
@@ -8,7 +8,7 @@
         <label>
             First Name
             &nbsp;&nbsp;
-          <input type="text" name="firstName" class="data"/>
+          <input type="text" name="firstName" class="data firstName"/>
         </label><br><br>
         <label>
             Last Name
@@ -23,20 +23,25 @@
         <label>
           Gender
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <input type="radio" name="gender" value="Male"/>Male
-          <input type="radio" name="gender" value="Female"/>Female
+          <input type="radio" name="gender" value="Male"/>&nbsp;&nbsp;Male
+          <input type="radio" name="gender" value="Female"/>&nbsp;&nbsp;Female
       </label><br><br><br>
         <!-- <button class="cancel">Cancel</button> -->
         <input type="submit" class="submit" placeholder="Submit" />
+        <input type="submit" class="update-btn" placeholder="Update" />
       </form>
       {{/if}}
 
     </header>
+    <br><br>
 
-    <ul>
+    {{> title}}
+
+    <!-- <ul> -->
       {{#each records}} {{> record}} {{/each}}
-    </ul>
+    <!-- </ul> -->
     <br>
     <button class="multidelete">Delete</button>
-  </div>
+  <!-- </div> -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
