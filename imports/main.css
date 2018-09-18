@@ -1,0 +1,88 @@
+body {
+  padding: 10px;
+  font-family: sans-serif;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+header {
+  padding: 20px 15px 15px 15px;
+  position: relative;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100%;
+  background: white;
+}
+
+form {
+  margin-top: 10px;
+  /* margin-bottom: -10px; */
+  position: relative;
+}
+
+.data {
+  /* box-sizing: border-box; */
+  padding: 10px 0;
+  background: transparent;
+  /* border: solid; */
+  /* border-radius: 10px; */
+  width: 40%;
+  padding-right: 80px;
+  font-size: 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  /* background: white; */
+}
+
+li {
+  position: relative;
+  list-style: none;
+  padding: 15px;
+  border-bottom: #eee solid 1px;
+}
+
+.edit {
+  float: right;
+  font-weight: bold;
+  background: none;
+  font-size: 1em;
+  border: none;
+  position: relative;
+}
+
+/* .multidelete {
+  font-weight: bold;
+  background: none;
+  font-size: 1em;
+  border: solid;
+  position: relative;
+} */
+
+button,
+.submit,
+.multidelete {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.cancel {}
+
+li.checked {
+  color: #888;
+}
+
+li.checked .text {
+  text-decoration: line-through;
+}
