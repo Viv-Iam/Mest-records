@@ -5,8 +5,7 @@ import { check } from 'meteor/check';
 export const Records = new Mongo.Collection('records');
 
 Meteor.methods ({
-    'records.insert' (firstName, lastName, gender, dob) {
-        // check(firstName, String);
+    'records.insert' (eitrecord) {
 
         //Ensure user is logged in
         if(!Meteor.userId()) {
@@ -14,10 +13,10 @@ Meteor.methods ({
         }
 
         Records.insert ({
-            firstName,
-            lastName,
-            gender,
-            dob,
+            firstName: eitrecord.firstName,
+            lastName: eitrecord.lastName,
+            gender: eitrecord.gender,
+            dob: eitrecord.dob,
             createdAt: new Date(),
             owner: Meteor.userId(),
             username: Meteor.user().username,
@@ -28,10 +27,10 @@ Meteor.methods ({
      
         Records.remove(recordId);
       },
-      'records.setChecked'(recordId, setChecked) {
+      'records.update'(recordId, eitrecord) {
         check(recordId, String);
-        check(setChecked, Boolean);
+        // check(eitrecord, Array);
      
-        Records.update(recordId, { $set: { checked: setChecked } });
+        Records.update(recordId, eitrecord);
       },
 })
