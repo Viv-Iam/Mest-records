@@ -24,6 +24,5 @@ Template.record.events({
    data.lastName.value = this.lastName;
    data.gender.value = this.gender ;
    data.dob.value = this.dob;
-   console.log('ID', data.id.value)
  },
 });

@@ -20,7 +20,6 @@ Template.body.helpers({
       const target = event.target;
       
       var id = target.id.value;
-      console.log('ID', id)
 
       var eitrecord = {firstName: target.firstName.value , 
                         lastName: target.lastName.value,
@@ -44,14 +43,12 @@ Template.body.helpers({
       } else {
         selected.splice(selected.indexOf(id), 1);
       }
-      console.log('remove', selected);
    },
    'click .multidelete'() {
      for (var i = 0; i < selected.length; i++) {
        var ids = selected[i];
        Meteor.call('records.remove', ids);    
-     }
-     console.log(selected)  
+     } 
    },
   });
   
