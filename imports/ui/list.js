@@ -6,9 +6,9 @@ import { Records } from '../api/records.js'
 
 import './list.html';
 
-Template.record.onCreated(function recordOnCreate() {
-  this.state = new ReactiveDict();
-});
+// Template.record.onCreated(function recordOnCreate() {
+//   this.state = new ReactiveDict();
+// });
 
 Template.record.helpers({
   records() {

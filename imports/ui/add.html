@@ -1,5 +1,4 @@
 <body>
-  <!-- <div class="container"> -->
   <header>
    {{> loginButtons}}
     <!-- <h3>MEST Records</h3> -->
@@ -18,7 +17,7 @@
         </label><br><br>
       <label>
             Date of Birth
-            <!-- &nbsp; -->
+            &nbsp;
         <input type="date" name="dob" class="data"/>
         </label><br><br>
       <label>
@@ -29,6 +28,7 @@
       </label><br><br><br>
       <input type="submit" class="submit" placeholder="Submit" />
     </form>
+    <br><br>
     {{> title}} {{#each records}} {{> record}} {{/each}}
     <button class="multidelete">Delete</button> {{/if}}
 
