@@ -5,6 +5,7 @@
       <!-- <h3>MEST Records</h3> -->
       {{#if currentUser}}
       <form class="eitdata">
+            <input type="hidden" name="id" class="id"/>
         <label>
             First Name
             &nbsp;&nbsp;
@@ -26,9 +27,7 @@
           <input type="radio" name="gender" value="Male"/>&nbsp;&nbsp;Male
           <input type="radio" name="gender" value="Female"/>&nbsp;&nbsp;Female
       </label><br><br><br>
-        <!-- <button class="cancel">Cancel</button> -->
         <input type="submit" class="submit" placeholder="Submit" />
-        <input type="submit" class="update-btn" placeholder="Update" />
       </form>
       {{/if}}
 
@@ -37,11 +36,7 @@
 
     {{> title}}
 
-    <!-- <ul> -->
       {{#each records}} {{> record}} {{/each}}
-    <!-- </ul> -->
+      <button class="multidelete">Delete</button>
     <br>
-    <button class="multidelete">Delete</button>
-  <!-- </div> -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
