@@ -23,11 +23,17 @@ Meteor.methods ({
         });
     },
     'records.remove'(recordId) {
+        if(!Meteor.userId()) {
+            throw new Meteor.Error('not-authorized');
+        }
         check(recordId, String);
      
         Records.remove(recordId);
       },
       'records.update'(recordId, eitrecord) {
+        if(!Meteor.userId()) {
+            throw new Meteor.Error('not-authorized');
+        }
         check(recordId, String);
         // check(eitrecord, Array);
      
