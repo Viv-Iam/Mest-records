@@ -1,42 +1,38 @@
 <body>
   <!-- <div class="container"> -->
-    <header>
-      {{> loginButtons}}
-      <!-- <h3>MEST Records</h3> -->
-      {{#if currentUser}}
-      <form class="eitdata">
-            <input type="hidden" name="id" class="id"/>
-        <label>
+  <header>
+   {{> loginButtons}}
+    <!-- <h3>MEST Records</h3> -->
+    {{#if currentUser}}
+    <form class="eitdata">
+      <input type="hidden" name="id" class="id" />
+      <label>
             First Name
             &nbsp;&nbsp;
           <input type="text" name="firstName" class="data firstName"/>
         </label><br><br>
-        <label>
+      <label>
             Last Name
             &nbsp;&nbsp;
           <input type="text" name="lastName" class="data"/>
         </label><br><br>
-        <label>
+      <label>
             Date of Birth
             <!-- &nbsp; -->
         <input type="date" name="dob" class="data"/>
         </label><br><br>
-        <label>
+      <label>
           Gender
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="radio" name="gender" value="Male"/>&nbsp;&nbsp;Male
           <input type="radio" name="gender" value="Female"/>&nbsp;&nbsp;Female
       </label><br><br><br>
-        <input type="submit" class="submit" placeholder="Submit" />
-      </form>
-      {{/if}}
+      <input type="submit" class="submit" placeholder="Submit" />
+    </form>
+    {{> title}} {{#each records}} {{> record}} {{/each}}
+    <button class="multidelete">Delete</button> {{/if}}
 
-    </header>
-    <br><br>
-
-    {{> title}}
-
-      {{#each records}} {{> record}} {{/each}}
-      <button class="multidelete">Delete</button>
-    <br>
+  </header>
+  <br><br>
+  <br>
 </body>

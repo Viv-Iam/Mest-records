@@ -1,29 +1,29 @@
 <template name="title">
   <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col"></th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Gender</th>
-          <th scope="col">DOB</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-    </table>
+    <thead class="thead-light">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Gender</th>
+        <th scope="col">DOB</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+  </table>
 </template>
 
 <template name="record">
   <table class="table-hover">
     <tbody>
-        <tr>
-          <td><input type="checkbox" class="toggle-checked"></td>
-          <td class="table-data">{{firstName}}</td>
-          <td class="table-data">{{lastName}}</td>
-          <td class="table-data">{{gender}}</td>
-          <td class="table-data">{{dob}}</td>
-          <td><button class="edit"><i class="fas fa-pen-square fa-2x"></i></button></td>
-        </tr>
-      </tbody>
-    </table>
-  </template>
+      <tr>
+        <td><input type="checkbox" class="toggle-checked"></td>
+        <td class="table-data">{{firstName}}</td>
+        <td class="table-data">{{lastName}}</td>
+        <td class="table-data">{{gender}}</td>
+        <td class="table-data">{{dob}}</td>
+        <td><button class="edit"><i class="fas fa-pen-square fa-2x"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+</template>
