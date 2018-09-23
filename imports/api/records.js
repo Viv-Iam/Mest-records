@@ -19,7 +19,7 @@ Meteor.methods ({
             dob: eitrecord.dob,
             createdAt: new Date(),
             owner: Meteor.userId(),
-            username: Meteor.user().username,
+            username: Meteor.user().username
         });
     },
     'records.remove'(recordId) {
