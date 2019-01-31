@@ -62,6 +62,25 @@ if (Meteor.isServer) {
         assert.equal(Records.find().count(), 0);
       });
 
+      //write test shows that you can delete your own record
+      it('cannot delete record if !loggedin', () => {
+        // Find the internal implementation of the record method so we can
+        // test it in isolation
+        const deleteRecord = Meteor.server.method_handlers['records.remove'];
+
+        // Set up a fake method invocation that looks like what the method expects
+        const invocation = { };
+
+        // verify that exception is thrown
+        assert.throws(function() {  
+          // Run the method with `this` set to the fake invocation
+        deleteRecord.apply(invocation, [eitrecord]);
+          }, Meteor.Error, /not.authorized/);
+
+        // Verify that the method does what we expected
+        assert.equal(Records.find().count(), 1);
+      });
+
          // *******************INSERT****************
 
       //write test shows that you can insert record
@@ -114,16 +133,42 @@ if (Meteor.isServer) {
             dob: '01/01/2017',
           }
 
-        const anotheruserId = Random.id();
         // Find the internal implementation of the record method so we can
         // test it in isolation
-        const insertRecord = Meteor.server.method_handlers['records.update'];
+        const updateRecord = Meteor.server.method_handlers['records.update'];
 
         // Set up a fake method invocation that looks like what the method expects
         const invocation = { userId };
           
        // Run the method with `this` set to the fake invocation
-       insertRecord.apply(invocation, [eitrecord, newrecord]);
+       updateRecord.apply(invocation, [eitrecord, newrecord]);
+
+        // Verify that the method does what we expected
+        assert.equal(Records.find().count(), 1);
+      });
+      //write test shows that you can update record
+      it('cannot update record if !loggedin', () => {
+        newrecord = {
+            createdAt: new Date(),
+            username: 'tmeasday',
+            firstName: 'Vivian',
+            lastName: 'Opondoh',
+            gender: 'female',
+            dob: '01/01/2017',
+          }
+          
+        // Find the internal implementation of the record method so we can
+        // test it in isolation
+        const updateRecord = Meteor.server.method_handlers['records.update'];
+
+        // Set up a fake method invocation that looks like what the method expects
+        const invocation = { };
+
+       // verify that exception is thrown
+       assert.throws(function() {     
+       // Run the method with `this` set to the fake invocation
+       updateRecord.apply(invocation, [eitrecord, newrecord]);
+      }, Meteor.Error, /not.authorized/);
 
         // Verify that the method does what we expected
         assert.equal(Records.find().count(), 1);
