@@ -8,7 +8,7 @@ Meteor.methods ({
     'records.insert' (eitrecord) {
 
         //Ensure user is logged in
-        if(!Meteor.userId()) {
+        if(! this.userId) {
             throw new Meteor.Error('not-authorized');
         }
 
@@ -18,25 +18,27 @@ Meteor.methods ({
             gender: eitrecord.gender,
             dob: eitrecord.dob,
             createdAt: new Date(),
-            owner: Meteor.userId(),
-            username: Meteor.user().username
+            // owner: Meteor.userId(),
+            // username: Meteor.user().username
         });
     },
     'records.remove'(recordId) {
-        if(!Meteor.userId()) {
+        check(recordId, String);
+        const record = Records.findOne(recordId);
+        if(!this.userId) {
             throw new Meteor.Error('not-authorized');
         }
-        check(recordId, String);
      
         Records.remove(recordId);
       },
       'records.update'(recordId, eitrecord) {
-        if(!Meteor.userId()) {
-            throw new Meteor.Error('not-authorized');
-        }
         check(recordId, String);
         // check(eitrecord, Array);
-     
+
+        if(!this.userId) {
+            throw new Meteor.Error('not-authorized');
+        }
+    
         Records.update(recordId, eitrecord);
       },
 })
