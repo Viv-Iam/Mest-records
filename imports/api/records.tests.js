@@ -34,7 +34,7 @@ if (Meteor.isServer) {
         //remove all records
         Records.remove({});
         //create record and equate recordId
-        recordId = Records.insert({
+        eitrecord = Records.insert({
           createdAt: new Date(),
           username: 'tmeasday',
           firstName: 'Vivian',
@@ -56,7 +56,7 @@ if (Meteor.isServer) {
         const invocation = { userId };
 
         // Run the method with `this` set to the fake invocation
-        deleteRecord.apply(invocation, [recordId]);
+        deleteRecord.apply(invocation, [eitrecord]);
 
         // Verify that the method does what we expected
         assert.equal(Records.find().count(), 0);
@@ -74,7 +74,7 @@ if (Meteor.isServer) {
         const invocation = { userId };
 
         // Run the method with `this` set to the fake invocation
-        insertRecord.apply(invocation, [recordId]);
+        insertRecord.apply(invocation, [eitrecord]);
 
         // Verify that the method does what we expected
         assert.equal(Records.find().count(), 2);
@@ -82,14 +82,6 @@ if (Meteor.isServer) {
 
        //write test shows that you cannot insert record if not logged in
        it('cannot insert record if !loggedin', () => {
-        const eitrecord = {
-            createdAt: new Date(),
-            username: 'tiday',
-            firstName: 'Dilan',
-            lastName: 'Timan',
-            gender: 'male',
-            dob: '01/01/2017',
-          }
 
         // Find the internal implementation of the record method so we can
         // test it in isolation
@@ -113,11 +105,11 @@ if (Meteor.isServer) {
 
       //write test shows that you can update record
       it('can update owned records', () => {
-        const eitrecord = {
+        newrecord = {
             createdAt: new Date(),
-            username: 'sgal',
-            firstName: 'Girl',
-            lastName: 'Spice',
+            username: 'tmeasday',
+            firstName: 'Vivian',
+            lastName: 'Opondoh',
             gender: 'female',
             dob: '01/01/2017',
           }
@@ -131,7 +123,7 @@ if (Meteor.isServer) {
         const invocation = { userId };
           
        // Run the method with `this` set to the fake invocation
-       insertRecord.apply(invocation, [recordId, eitrecord]);
+       insertRecord.apply(invocation, [eitrecord, newrecord]);
 
         // Verify that the method does what we expected
         assert.equal(Records.find().count(), 1);
